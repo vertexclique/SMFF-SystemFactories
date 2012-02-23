@@ -1,0 +1,23 @@
+ -----
+ SystemFactories
+ -----
+
+ 
+Introduction
+
+
+ The SystemFactories module provides methods to pseudo-randomly generate system models.
+ 
+ As described in the {{{http://www.ida.ing.tu-bs.de/pub/2010/Neu10:SMFF.pdf}SMFF Paper}} test case generation is composed of 6 steps.
+
+ [PlatformFactories] construct a platform model. Such a platform consists of computational resources (processors) and communication resources (busses) that are interconnected. SMFF comes with one exemplary algorithm to generate platform models.
+
+ [ApplicationFactories] generate task graphs that describe the structure of an application. We provide two different algorithms to generate application models. The <TaskChainApplicationFactory> generates chains of tasks of defined length - simple and straight forward. For those who would like have more control over application model generation we have the <StdApplicationFactory> which is based on TGFF and accepts the same parameters - though it additionally allows to create task graphs that contain cycles. <<Note:>> If you would like to use the <StdApplicationFactory> you have to place a compiled tgff binary into the folder of the <StdApplicationFactory>.
+ 
+ [Mappers] map application models onto the platform model. The mapper provided with SMFF <SensActMapper> only supports chains of tasks. It tries to spread the task chain across many resources without placing two tasks which are not adjacent in the task graph on the same resource.
+ 
+ [SchedulingParameterFactories] assign scheduling parameters to tasks and communication links. Currently we provide the <StdPriorityAssigner> which randomly assigns priorities on each resource.
+ 
+ [TimingFactories] generate activation patterns (period, jitter) and BCET and WCET for each task and communication channel. We provide tow algorithms. The <StdTimingFactory> randomly assigns all values in predefined windows. The <UUniFast> algorithm {{{http://doi.ieeecomputersociety.org/10.1109/EMRTS.2004.1311021}(paper)}} assigns WCETs such that a certain resource utilization is achieved while the distribution of WCETs is uniform.
+ 
+ [ConstraintFactories] generates constraints on timing properties. The <StdConstraintFactory> creates path latency constraints while the <JConstraintFactory> generates jitter constraints.

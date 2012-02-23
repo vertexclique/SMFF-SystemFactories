@@ -1,0 +1,31 @@
+10
+
+dir
+147
+svn+ssh://login1.ida.ing.tu-bs.de/projects/epoc/SVN_Repo/SMFF-SystemFactories/site/resources
+svn+ssh://login1.ida.ing.tu-bs.de/projects/epoc/SVN_Repo
+
+
+
+2010-10-04T15:06:03.271905Z
+144
+mileri
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+11c183fb-37bf-4b5e-a260-e132bd0be905
+
+images
+dir
+
